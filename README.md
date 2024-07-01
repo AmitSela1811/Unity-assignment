@@ -153,7 +153,6 @@ minikube addons enable ingress
     - 1 pod runing the application.
     - 1 ingress resouce.
     - 2 services and 1 deployment.
-    ```
 
 ### 6. Accessing Service on Minikube (Mac)
 
