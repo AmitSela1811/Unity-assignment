@@ -99,7 +99,7 @@ minikube addons enable ingress
 Clone this repository to your local machine:
 
 ```bash
-git clone git@github.com:AmitSela1811/unity-home-assignment.git
+git clone git@github.com:AmitSela1811/Unity-assignment.git
 ```
 
 ### 3. Deploy infrastructure On Minikube
