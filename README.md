@@ -5,45 +5,47 @@ This project consists of two Python web applications, **customer-mgmt** and **we
 ## Directory Structure
 ```csharp
 /
+/
 ├── README.md
 ├── customer-mgmt-service
 │   ├── app
 │   │   └── main.py
 │   ├── chart
-        ├── customer-mgmt
-          ├── templates
-            ├── deployment.yaml
-            ├── service
-            ├── _helpers.tpl
-            ├── NOTES.txt
-│   │     ├── Chart.yaml
-│   │     └── values.yaml
+│   │   ├── customer-mgmt
+│   │   │   ├── templates
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── service.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── NOTES.txt
+│   │   │   ├── Chart.yaml
+│   │   │   └── values.yaml
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── customer-web-service
 │   ├── app
 │   │   └── main.py
 │   ├── chart
-        ├── web-service
-          ├── templates
-            ├── deployment.yaml
-            ├── ingress.yaml
-            ├── service.yaml
-            ├── _helpers.tpl
-            ├── NOTES.txt
-│   │     ├── Chart.yaml
-│   │     └── values.yaml
+│   │   ├── web-service
+│   │   │   ├── templates
+│   │   │   │   ├── deployment.yaml
+│   │   │   │   ├── ingress.yaml
+│   │   │   │   ├── service.yaml
+│   │   │   │   ├── _helpers.tpl
+│   │   │   │   ├── NOTES.txt
+│   │   ├── Chart.yaml
+│   │   └── values.yaml
 │   ├── Dockerfile
 │   └── requirements.txt
+
 ```
 
 
 ## Components
 
 ### Applications
-   #### customer-mgmt
-- **overview**: A FastAPI-based application that handles customer purchase data. It interacts with MongoDB for data storage and Kafka for consuming purchase messages. The service exposes endpoints to create and retrieve customer purchases.
-- **features**: 
+  #### Customer-mgmt
+- **Overview**: A FastAPI-based application that handles customer purchase data. It interacts with MongoDB for data storage and Kafka for consuming purchase messages. The service exposes endpoints to create and retrieve customer purchases.
+- **Features**: 
   - Create Purchase: Accepts customer purchase data and stores it in MongoDB.
   - Retrieve Purchases: Retrieves all customer purchase records from MongoDB.
   - Kafka Integration: Consumes purchase messages from a Kafka topic and stores them in MongoDB.
@@ -54,7 +56,7 @@ This project consists of two Python web applications, **customer-mgmt** and **we
   - Kafka: Acts as a message broker for purchase data.
   - Docker & Kubernetes: The service is containerized and deployed on a Kubernetes cluster. 
         
-   #### web-service
+  #### Web-service
 - **overview**:A FastAPI-based web application that handles customer purchase requests. It interacts with Kafka to publish purchase messages and communicates with another service to retrieve customer purchases.
 - **features**: 
   - Create Purchase Request: Accepts customer purchase data and publishes it to a Kafka topic.
