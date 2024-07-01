@@ -56,7 +56,7 @@ This project consists of two Python web applications, **customer-mgmt** and **we
   - Kafka: Acts as a message broker for purchase data.
   - Docker & Kubernetes: The service is containerized and deployed on a Kubernetes cluster. 
         
-  #### Web-service
+#### Web-service
 - **overview**:A FastAPI-based web application that handles customer purchase requests. It interacts with Kafka to publish purchase messages and communicates with another service to retrieve customer purchases.
 - **features**: 
   - Create Purchase Request: Accepts customer purchase data and publishes it to a Kafka topic.
