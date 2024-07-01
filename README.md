@@ -71,6 +71,7 @@ This project consists of two Python web applications, **customer-mgmt** and **we
   #### minikube k8s cluster
   #### kafka cluster
   - kafka cluster deployed as Statefullset on k8s cluster, 3 kafka broker pods and 3 zookeeper pods.
+  #### kafka cluster
   - mongodb deployed as Statefullset on k8s cluster 3 mongodb pods and 1 arbiter pods.
         
     
