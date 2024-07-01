@@ -146,9 +146,6 @@ git clone git@github.com:AmitSela1811/unity-home-assignment.git
     - 2 services and 1 deployment.
     ```
 
-    This chart will deploy a service, a deployment and an ingress.
-    `API_URL=http://numbers-api.apps.svc.cluster.local:8080`, so when reaching microservices, it will redirect the request to `numbers-api` service using internal k8s communication.
-
 ### 4. Accessing Service on Minikube (Mac)
 
 1. Edit the hosts file to map the Ingress IP address to your desired hostname:
