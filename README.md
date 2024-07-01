@@ -129,7 +129,8 @@ minikube addons enable ingress
     ```
     This chart will deploy:
     - 3 mongodb pods,Each pod runs a MongoDB instance that is part of the replica set.
-    - 2 services and 2 statfullsets.
+    - 2 services
+    - 2 statfullsets.
 
 
 ### 5. Deploy Microservices On Minikube
