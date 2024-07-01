@@ -78,14 +78,22 @@ This project consists of two Python web applications, **customer-mgmt** and **we
 ### Helm Charts
 - Both applications include a Helm chart for deployment.
 - kafka cluster uses bitnami/kafka Helm chart for deployment.
-- mongodb uses bitnami/mongodb Helm chart for deployment.
+- mongodb cluster uses bitnami/mongodb Helm chart for deployment.
 
 ### Dockerfiles
 - Each application has its own Dockerfile for containerization based on `python:3.9-slim` image.
 
 ## Setup Instructions
 
-### 1. Deploy Kubernetes Cluster
+### 1. Clone the Repository
+
+Clone this repository to your local machine:
+
+```bash
+git clone git@github.com:AmitSela1811/Unity-assignment.git
+```
+
+### 2. Deploy Kubernetes Cluster
 
 Deploy a Kubernetes cluster on your preferred platform. For local development, you can use MiniKube. 
 ```bash
@@ -97,17 +105,14 @@ Ensure that the Minikube Ingress addon is enabled using
 minikube addons enable ingress
 ```
 
-### 2. Clone the Repository
-
-Clone this repository to your local machine:
-
-```bash
-git clone git@github.com:AmitSela1811/Unity-assignment.git
-```
-
 ### 3. Deploy infrastructure On Minikube
-
-1. Deploy kafka cluster:
+1. add and upfate bitnami helm repo:
+    ```bash
+    helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm repo update
+    ```
+   
+2. Deploy kafka cluster:
 
     ```bash
     helm upgrade --install kafka-cluster bitnami/kafka --version 21.0.1 -n kafka-cluster  --create-namespace --set replicaCount=3 --set zookeeper.replicaCount=3
@@ -116,7 +121,7 @@ git clone git@github.com:AmitSela1811/Unity-assignment.git
     - kafka: 2 kafka services, 3 pods representing kafka brokers and 1 statefulset.
     - zookeeper: 2 zookeeper services, 3 pods representing zookeeper brokers and 1 statefulset.
 
-2. Deploy mongodb:
+3. Deploy mongodb:
 
     ```bash
     helm upgrade --install mongodb bitnami/mongodb -n mongodb --create-namespace --set architecture=replicaset,auth.rootPassword=secretpassword,auth.username=my-user,auth.password=my-password,auth.database=my-database --set replicaCount=3
@@ -126,7 +131,7 @@ git clone git@github.com:AmitSela1811/Unity-assignment.git
     - 2 services and 2 statfullsets.
 
 
-### 3. Deploy Microservices On Minikube
+### 4. Deploy Microservices On Minikube
 
 1. Deploy customer-mgmt:
 
@@ -148,7 +153,7 @@ git clone git@github.com:AmitSela1811/Unity-assignment.git
     - 2 services and 1 deployment.
     ```
 
-### 4. Accessing Service on Minikube (Mac)
+### 5. Accessing Service on Minikube (Mac)
 
 1. Edit the hosts file to map the Ingress IP address to your desired hostname:
 
