@@ -179,3 +179,10 @@ git clone git@github.com:AmitSela1811/Unity-assignment.git
             "timestamp": "2024-07-01T12:00:00Z"
     }'
     ```
+   
+4. open a terminal and do the following curl to generate a get all User Buys:
+   ```bash
+    curl -X GET "http://web-service.local/getAllUserBuys"
+    ```
+
+
