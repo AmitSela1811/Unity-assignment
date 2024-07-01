@@ -14,24 +14,28 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# MongoDB DAO Class
+# MongoDB Data Access Object (DAO) Class
 class CustomerDAO:
     def __init__(self, mongo_uri, database, collection):
+        # Initialize MongoDB client and specify database and collection
         self.client = MongoClient(mongo_uri)
         self.db = self.client[database]
         self.collection = self.db[collection]
     
     def insert_purchase(self, purchase_data):
+        # Insert a new purchase document into the collection
         result = self.collection.insert_one(purchase_data)
         return result.inserted_id
     
     def get_all_purchases(self):
+        # Retrieve all purchases from the collection, excluding the '_id' field
         purchases = list(self.collection.find({}, {'_id': 0}))
         return purchases
 
-# Kafka Consumer Class
+# Kafka Consumer Service Class
 class KafkaConsumerService:
     def __init__(self, bootstrap_servers, topic, dao):
+        # Initialize Kafka consumer and specify the topic and bootstrap servers
         self.consumer = KafkaConsumer(
             topic,
             bootstrap_servers=bootstrap_servers,
@@ -40,6 +44,7 @@ class KafkaConsumerService:
         self.dao = dao
 
     def consume_messages(self):
+        # Consume messages from Kafka and insert them into MongoDB
         for message in self.consumer:
             try:
                 # Assuming message.value is a JSON object representing a Purchase
@@ -71,7 +76,7 @@ class Purchase(BaseModel):
     price: float
     timestamp: str
 
-# FastAPI Endpoints
+# FastAPI Endpoints for testing
 @app.post('/purchase', status_code=201)
 def create_purchase(purchase: Purchase):
     try:
@@ -83,7 +88,14 @@ def create_purchase(purchase: Purchase):
 
 @app.get('/customer_purchases', response_model=List[Purchase])
 def get_all_purchases():
+    # Retrieve all purchases from MongoDB
     return dao.get_all_purchases()
+
+if __name__ == '__main__':
+    import uvicorn
+    # Run the FastAPI app with Uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=8080, debug=True)
+
 
 if __name__ == '__main__':
     import uvicorn
