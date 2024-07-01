@@ -67,7 +67,7 @@ This project consists of two Python web applications, **customer-mgmt** and **we
   - Kafka: Acts as a message broker for purchase data.
   - Docker & Kubernetes: The service is containerized and deployed on a Kubernetes cluster.
  
-### infrastructure 
+### Infrastructure 
   #### minikube k8s cluster
   #### kafka cluster
   - kafka cluster deployed as Statefullset on k8s cluster, 3 kafka broker pods and 3 zookeeper pods.
