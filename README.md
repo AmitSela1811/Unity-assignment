@@ -92,8 +92,9 @@ Clone this repository to your local machine:
 ```bash
 git clone git@github.com:AmitSela1811/Unity-assignment.git
 ```
+### 2. Verify you have docker installed and running
 
-### 2. Deploy Kubernetes Cluster
+### 3. Deploy Kubernetes Cluster
 
 Deploy a Kubernetes cluster on your preferred platform. For local development, you can use MiniKube. 
 ```bash
@@ -105,7 +106,7 @@ Ensure that the Minikube Ingress addon is enabled using
 minikube addons enable ingress
 ```
 
-### 3. Deploy infrastructure On Minikube
+### 4. Deploy infrastructure On Minikube
 1. add and upfate bitnami helm repo:
     ```bash
     helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -131,7 +132,7 @@ minikube addons enable ingress
     - 2 services and 2 statfullsets.
 
 
-### 4. Deploy Microservices On Minikube
+### 5. Deploy Microservices On Minikube
 
 1. Deploy customer-mgmt:
 
@@ -153,7 +154,7 @@ minikube addons enable ingress
     - 2 services and 1 deployment.
     ```
 
-### 5. Accessing Service on Minikube (Mac)
+### 6. Accessing Service on Minikube (Mac)
 
 1. Edit the hosts file to map the Ingress IP address to your desired hostname:
 
