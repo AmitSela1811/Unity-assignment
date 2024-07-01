@@ -119,8 +119,7 @@ git clone git@github.com:AmitSela1811/Unity-assignment.git
 2. Deploy mongodb:
 
     ```bash
-    helm upgrade --install mongodb bitnami/mongodb -n mongodb --create-namespace --set architecture=replicaset,auth.rootPassword=secretpassword,auth.username=my-user,auth.password=my- 
-    password,auth.database=my-database --set replicaCount=3
+    helm upgrade --install mongodb bitnami/mongodb -n mongodb --create-namespace --set architecture=replicaset,auth.rootPassword=secretpassword,auth.username=my-user,auth.password=my-password,auth.database=my-database --set replicaCount=3
     ```
     This chart will deploy:
     - 3 mongodb pods,Each pod runs a MongoDB instance that is part of the replica set.
