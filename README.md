@@ -175,15 +175,7 @@ minikube addons enable ingress
     ```
 3. open a terminal and do the following curl to generate a "buy" with any parmeters you like:
    ```bash
-    curl -X POST \ 
-          http://web-service.local/buy \
-          -H 'Content-Type: application/json' \
-          -d '{
-            "username": "john_doe",
-            "userid": 123,
-            "price": 99.99,
-            "timestamp": "2024-07-01T12:00:00Z"
-    }'
+curl -X POST 'http://web-service.local/buy' -H 'Content-Type: application/json' -d '{"username": "john_doe", "userid": 123, "price": 99.99, "timestamp": "2024-07-01T12:00:00Z"}'
     ```
    
 4. open a terminal and do the following curl to generate a get all User Buys:
